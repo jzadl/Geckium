@@ -72,3 +72,8 @@
     border-radius: var(--titlebar-border-radius) var(--titlebar-border-radius) 0 0;
     box-shadow: var(--titlebar-box-shadow);
 }
+
+#gkfsspacer {
+    width: 20px;
+	order: 9999;
+}
