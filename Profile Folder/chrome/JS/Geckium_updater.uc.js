@@ -7,7 +7,7 @@
 // ==/UserScript==
 
 const { gkUpdater } = ChromeUtils.importESModule("chrome://modules/content/GeckiumUpdater.sys.mjs");
-const configIteration = 6;
+const configIteration = 7;
 var latestRel = "latest";
 
 (async () => {
@@ -114,6 +114,10 @@ function updateSettings(iteration) {
 		// Backup old apps format and set appsList to the new defaults
 		gkPrefUtils.set("Geckium.newTabHome.oldAppsList").string(gkPrefUtils.tryGet("Geckium.newTabHome.appsList").string);
 		gkNTP.restoreDefaultApps();
+	}
+	if (iteration < 7 && gkPrefUtils.tryGet("Geckium.version.iteration").int != 0) {
+		// Undo disable in prior releases
+		gkPrefUtils.delete("gfx.webrender.dcomp-win.enabled");
 	}
 	// Put future settings changes down here as < 6, and so on.
 

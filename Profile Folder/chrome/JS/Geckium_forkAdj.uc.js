@@ -54,6 +54,12 @@ Services.prefs.addObserver("sidebar.verticalTabs", firefoxObserver, false);
 // Firefox (Native Controls Patch) Adjustments
 class gkNCPAdj {
 	static checkNCP() {
+		let NCP = (isNCPatched == "patch");
+        if (gkPrefUtils.tryGet("gfx.webrender.dcomp-win.enabled").bool == NCP) {
+			gkPrefUtils.set("gfx.webrender.dcomp-win.enabled").bool(!NCP);
+			UC_API.Runtime.restart(false);
+			return;
+		} // Ensure dcomp is automatically switched when installed or uninstalled
 		if (!isNCPatched) {
 			if (gkPrefUtils.tryGet("Geckium.NCP.installed").bool == true) {
 				if (parseInt(Services.appinfo.version.split(".")[0]) > 115) { // Special message for ex-115-users
