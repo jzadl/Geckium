@@ -697,7 +697,8 @@ class gkTitlebars {
 		 */
 		"tahoe": [25, "14px"],
 		"bigslur": [20, "9px"],
-		"yos": [0, "5px"]
+		"yos": [14, "5px"],
+		"mav": [0, "3px"]
 	}
 	static checkMac() {
 		if (AppConstants.platform == "macosx") {
