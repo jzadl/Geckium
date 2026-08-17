@@ -91,7 +91,7 @@ class gkNCPAdj {
 						label: "Redownload",
 						callback: (notification) => {
 							notification.ownerGlobal.openWebLinkIn(
-							"https://github.com/kawapure/firefox-native-controls/releases/tag/" + Services.appinfo.version,
+							"https://github.com/xYannikx/firefox-native-controls/releases/tag/" + Services.appinfo.version,
 							"tab"
 							);
 							return false
@@ -118,7 +118,7 @@ class gkNCPAdj {
 					label: "Learn more",
 					callback: (notification) => {
 						notification.ownerGlobal.openWebLinkIn(
-						"https://github.com/kawapure/firefox-native-controls",
+						"https://github.com/xYannikx/firefox-native-controls",
 						"tab"
 						);
 						return false
