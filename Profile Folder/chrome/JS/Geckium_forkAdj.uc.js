@@ -140,8 +140,8 @@ class gkNCPAdj {
 	}
 }
 if (AppConstants.MOZ_APP_NAME == "firefox" || AppConstants.MOZ_APP_NAME == "firefox-esr") {
-	if (isWindows10() && (parseInt(Services.appinfo.version.split(".")[0]) == 115 ||
-		isNCPatched == "patch" || gkPrefUtils.tryGet("Geckium.NCP.installed").bool == true)) { // Only for Windows 10+
+	if (parseInt(Services.appinfo.version.split(".")[0]) == 115 && (isWindows10() ||
+			isNCPatched == "patch")) { // Only for Windows 10+
 		window.addEventListener("load", gkNCPAdj.checkNCP);
 	}
 }
