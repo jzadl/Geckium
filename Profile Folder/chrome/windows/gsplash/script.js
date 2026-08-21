@@ -41,10 +41,12 @@ function startFromScratch() {
 `);
 }
 
-document.getElementById("getStartedBtn").addEventListener("click", () => {
+const getStartedBtn = document.getElementById("getStartedBtn");
+if (getStartedBtn) getStartedBtn.addEventListener("click", () => {
 	openWizardFromSplash(false);
 });
 
-document.getElementById("startFromScratchBtn").addEventListener("click", () => {
+const startFromScratchBtn = document.getElementById("startFromScratchBtn");
+if (startFromScratchBtn) startFromScratchBtn.addEventListener("click", () => {
 	openWizardFromSplash(true);
 });
