@@ -40,3 +40,11 @@ function startFromScratch() {
 }
 `);
 }
+
+document.getElementById("getStartedBtn").addEventListener("click", () => {
+	openWizardFromSplash(false);
+});
+
+document.getElementById("startFromScratchBtn").addEventListener("click", () => {
+	openWizardFromSplash(true);
+});

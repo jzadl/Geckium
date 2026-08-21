@@ -29,6 +29,10 @@ finishElm.addEventListener("click", () => {
 	gkWindow.close();
 })
 
+document.getElementById("openGSettingsBtn").addEventListener("click", () => {
+	openGSettings('wizard');
+})
+
 document.addEventListener("pageChanged", () => {
 	const currentPage = document.querySelector('.pages .page[selected="true"]');
 	const currentPageIndex = parseInt(currentPage.dataset.page);
