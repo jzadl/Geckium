@@ -1,39 +1,19 @@
-document.getElementById("resetOverridesBtn").addEventListener("click", () => {
-	disableOverrides();
-});
+function bindClick(id, fn) {
+	const el = document.getElementById(id);
+	if (el) el.addEventListener("click", fn);
+}
 
-document.getElementById("overridesModalYesBtn").addEventListener("click", () => {
-	disableOverrides();
-});
-
-document.getElementById("app_restoreBtn").addEventListener("click", () => {
-	gkNTP.restoreDefaultApps();
-	populateAppsList();
-});
-
-document.getElementById("openChrThemesFolderBtn").addEventListener("click", () => {
-	openChrThemesDir();
-});
-
-document.getElementById("refreshListBtn").addEventListener("click", () => {
-	rebuildGrids();
-});
+bindClick("resetOverridesBtn", () => { disableOverrides(); });
+bindClick("overridesModalYesBtn", () => { disableOverrides(); });
+bindClick("app_restoreBtn", () => { gkNTP.restoreDefaultApps(); populateAppsList(); });
+bindClick("openChrThemesFolderBtn", () => { openChrThemesDir(); });
+bindClick("refreshListBtn", () => { rebuildGrids(); });
+bindClick("wizardModalYesBtn", () => { gkPrefUtils.set("Geckium.firstRun.complete").bool(false); UC_API.Runtime.restart(true); });
+bindClick("restartModalYesBtn", () => { UC_API.Runtime.restart(); });
+bindClick("clearCacheModalYesBtn", () => { UC_API.Runtime.restart(true); });
 
 document.querySelectorAll("#gkthemes-grid button[data-systheme]").forEach(themeBtn => {
 	themeBtn.addEventListener("click", () => {
 		applySysTheme(themeBtn.dataset.systheme);
 	});
-});
-
-document.getElementById("wizardModalYesBtn").addEventListener("click", () => {
-	gkPrefUtils.set("Geckium.firstRun.complete").bool(false);
-	UC_API.Runtime.restart(true);
-});
-
-document.getElementById("restartModalYesBtn").addEventListener("click", () => {
-	UC_API.Runtime.restart();
-});
-
-document.getElementById("clearCacheModalYesBtn").addEventListener("click", () => {
-	UC_API.Runtime.restart(true);
 });
