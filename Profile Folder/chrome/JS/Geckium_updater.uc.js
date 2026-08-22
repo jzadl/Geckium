@@ -169,6 +169,26 @@ const gkMaxVers = {
 	
 } // make sure to do it from lowest version top to highest last
 function gkTooNew() {
+	/** if (majorVersion > 152) {
+		UC_API.Notifications.show({
+			label : `${Services.appinfo.name} ${majorVersion} doesn't support Geckium Beta 1. Please use ${Services.appinfo.name} ESR until Geckium Beta 2 releases.`,
+			type : "geckium-notification",
+			priority: "critical"
+		})
+		return false;
+	} // TEMP UNTIL BETA 2 **/
+
+	for (const i in gkMaxVers) {
+		if (majorVersion <= i) {
+			openTrustedLinkIn(`https://github.com/angelbruni/Geckium/releases/${gkMaxVers[i]}`, 'tab');
+			UC_API.Notifications.show({
+				label : `Geckium no longer supports ${Services.appinfo.name} ${majorVersion}. To use Geckium properly, switch to the release opened below.`,
+				type : "geckium-notification",
+				priority: "critical"
+			})
+			return true;
+		}
+	}
 	return false;
 }
 async function gkCheckUpdatability(gkver) {
